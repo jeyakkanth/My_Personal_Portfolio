@@ -2,7 +2,7 @@
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://jeyakkanth.github.io/My-Portfolio-Website/",
+  "homepage": ".",
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
     "@heroicons/react": "^2.2.0",

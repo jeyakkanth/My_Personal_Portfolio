@@ -1,12 +1,20 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Mail, Send, CheckCircle, AlertCircle, Loader2, Link as LinkIcon, User, MessageCircle } from 'lucide-react';
+import { Mail, Send, AlertCircle, Loader2, User, MessageCircle } from 'lucide-react';
 import { toast } from 'react-hot-toast';
+
+type ContactFormData = {
+    name: string;
+    email: string;
+    message: string;
+};
+
+const FORMSPREE_ENDPOINT = process.env.REACT_APP_FORMSPREE_ENDPOINT || '';
 
 /**
  * Contact Component
- * Uses Formspree for "Out-of-the-box" email communication.
+ * Uses Formspree for "out-of-the-box" email delivery (no backend).
  * Features: Real-time validation, smart button, and premium animations.
  */
 export default function Contact() {
@@ -18,36 +26,58 @@ export default function Contact() {
         handleSubmit,
         reset,
         formState: { errors, isValid }
-    } = useForm({
+    } = useForm<ContactFormData>({
         mode: 'onChange'
     });
 
-    const onSubmit = async (data: any) => {
+    const onSubmit = async (data: ContactFormData) => {
         setIsSending(true);
         const toastId = toast.loading('Sending your message...');
 
         try {
-            // Using Formspree - NO KEYS REQUIRED. Just works after confirmation.
-            const response = await fetch('https://formspree.io/f/jeyakkanth2001@gmail.com', {
-                method: 'POST',
-                body: JSON.stringify(data),
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                }
-            });
+            if (FORMSPREE_ENDPOINT) {
+                const response = await fetch(FORMSPREE_ENDPOINT, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Accept: 'application/json'
+                    },
+                    body: JSON.stringify({
+                        name: data.name,
+                        email: data.email,
+                        message: data.message
+                    })
+                });
 
-            if (response.ok) {
-                toast.success('Message sent! Check your email to confirm the first message.', {
+                if (!response.ok) {
+                    throw new Error('Form submission failed');
+                }
+
+                toast.success('Message sent successfully! I will reply to you at your email.', {
                     id: toastId,
                     duration: 5000
                 });
                 reset();
             } else {
-                throw new Error('Formspree error');
+                const subject = `New message from ${data.name || 'your portfolio site'}`;
+                const body = `Name: ${data.name}\nEmail: ${data.email}\n\nMessage:\n${data.message}`;
+
+                const mailtoUrl = `mailto:jeyakkanth2001@gmail.com?subject=${encodeURIComponent(
+                    subject
+                )}&body=${encodeURIComponent(body)}`;
+
+                window.location.href = mailtoUrl;
+
+                toast.success('Your email app is open. Please press send to finish.', {
+                    id: toastId,
+                    duration: 6000
+                });
+                reset();
             }
         } catch (error) {
-            toast.error('Failed to send. Please try the direct email link below.', { id: toastId });
+            toast.error('Failed to send. Please email me directly at jeyakkanth2001@gmail.com.', {
+                id: toastId
+            });
         } finally {
             setIsSending(false);
         }
