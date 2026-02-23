@@ -76,8 +76,9 @@ export default function Header({ theme, toggleTheme }: HeaderProps) {
                     <motion.a
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
-                        className="text-2xl font-display font-bold text-slate-900 dark:text-white tracking-tighter"
-                        href="/"
+                        className="text-2xl font-display font-bold text-slate-900 dark:text-white tracking-tighter select-none"
+                        href="/admin/login"
+                        title="Admin Panel"
                     >
                         JEY<span className="text-accent-blue">.</span>
                     </motion.a>

@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { Github, Linkedin, Youtube, ArrowRight, Download } from 'lucide-react';
-import HeroImg from '../Assets/hero.jpg';
+import HeroImg from '../../Assets/hero.jpg';
 
 const roles = [
     "Software Engineer",

@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { FileText, Download, ExternalLink } from 'lucide-react';
-import ResumeImg from '../Assets/resume.jpg';
-import ResumePDF from '../Assets/Jeyakkanth_Resume.pdf';
+import ResumeImg from '../../Assets/resume.jpg';
+import ResumePDF from '../../Assets/Jeyakkanth_Resume.pdf';
 
 export default function Resume() {
     const resumeLink = ResumePDF;

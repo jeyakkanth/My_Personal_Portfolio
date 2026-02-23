@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Github, ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react';
-import RealEstateWebsite from '../Assets/Real-Estate.png';
-import SpicyWebsite from '../Assets/organics.png';
-import LoginSignUP from '../Assets/Login.png';
-import TSM_image from "../Assets/TMS.png"
+import RealEstateWebsite from '../../Assets/Real-Estate.png';
+import SpicyWebsite from '../../Assets/organics.png';
+import LoginSignUP from '../../Assets/Login.png';
+import TSM_image from '../../Assets/TMS.png';
 
 interface Project {
     title: string;
