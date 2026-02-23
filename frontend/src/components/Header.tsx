@@ -43,7 +43,7 @@ export default function Header({ theme, toggleTheme }: HeaderProps) {
             y: "-100%",
             transition: {
                 duration: 0.5,
-                ease: [0.4, 0, 0.2, 1],
+                ease: "easeInOut",
                 staggerChildren: 0.1,
                 staggerDirection: -1
             }
@@ -53,7 +53,7 @@ export default function Header({ theme, toggleTheme }: HeaderProps) {
             y: 0,
             transition: {
                 duration: 0.5,
-                ease: [0.4, 0, 0.2, 1],
+                ease: "easeInOut",
                 staggerChildren: 0.1,
                 delayChildren: 0.2
             }
