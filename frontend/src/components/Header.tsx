@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, Sun, Moon } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, Variants } from 'framer-motion';
 
 interface HeaderProps {
     theme: string;
@@ -37,13 +37,13 @@ export default function Header({ theme, toggleTheme }: HeaderProps) {
         { name: 'Contact', href: '#contact' },
     ];
 
-    const menuVariants = {
+    const menuVariants: Variants = {
         closed: {
             opacity: 0,
             y: "-100%",
             transition: {
                 duration: 0.5,
-                ease: "easeInOut",
+                ease: [0.42, 0, 0.58, 1],
                 staggerChildren: 0.1,
                 staggerDirection: -1
             }
@@ -53,7 +53,7 @@ export default function Header({ theme, toggleTheme }: HeaderProps) {
             y: 0,
             transition: {
                 duration: 0.5,
-                ease: "easeInOut",
+                ease: [0.42, 0, 0.58, 1],
                 staggerChildren: 0.1,
                 delayChildren: 0.2
             }
