@@ -12,34 +12,36 @@ type ExperienceItem = {
 
 const internships: ExperienceItem[] = [
     {
-        title: 'Frontend Developer Intern',
-        organization: 'Your Company Name',
-        location: 'Location',
-        period: 'Month YYYY – Month YYYY',
+        title: 'Software Engineer Intern',
+        organization: 'Samuel Janam IT Centre',
+        location: 'Jaffna, Sri Lanka',
+        period: 'July 2025 – January 2026',
         description:
-            'Contributed to building responsive, user-friendly web interfaces using React, TypeScript, and modern UI libraries.',
+            'Worked as a Software Engineer Intern contributing to full-stack development using React.js and Java Spring Boot.',
         highlights: [
-            'Implemented reusable React components and improved code structure',
-            'Collaborated with designers and backend engineers to ship new features',
-            'Optimized UI performance and fixed UI/UX issues across devices'
+            'Developed responsive front-end interfaces using React.js',
+            'Integrated front-end applications with backend REST APIs built using Spring Boot',
+            'Implemented authentication, error handling, and database operations',
+            'Applied modern development best practices and AI-assisted tools to improve productivity',
+            'Strengthened knowledge in Structural Design and Project Management through practical application'
         ]
     }
 ];
 
 const certifications: ExperienceItem[] = [
-    {
-        title: 'Certification Title',
-        organization: 'Issuing Organization',
-        location: '',
-        period: 'Month YYYY',
-        description:
-            'Validated skills in web development and modern technologies through hands-on projects and assessments.',
-        highlights: [
-            'Covered React, JavaScript/TypeScript, and REST API integration',
-            'Built real-world style projects as part of the certification',
-            'Strengthened problem-solving and clean code practices'
-        ]
-    }
+    // {
+    //     title: 'Certification Title',
+    //     organization: 'Issuing Organization',
+    //     location: '',
+    //     period: 'Month YYYY',
+    //     description:
+    //         'Validated skills in web development and modern technologies through hands-on projects and assessments.',
+    //     highlights: [
+    //         'Covered React, JavaScript/TypeScript, and REST API integration',
+    //         'Built real-world style projects as part of the certification',
+    //         'Strengthened problem-solving and clean code practices'
+    //     ]
+    // }
 ];
 
 export default function Experience() {
